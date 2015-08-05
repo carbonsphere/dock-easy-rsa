@@ -20,7 +20,7 @@ if ! [ -d "keys" ]; then
 fi
 
 if ! [ -d "openvpn" ]; then
-  echo -e "Create keys directory"
+  echo -e "Create openvpn directory"
   mkdir openvpn
 fi
 
