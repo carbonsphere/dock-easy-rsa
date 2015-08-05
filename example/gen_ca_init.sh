@@ -1,3 +1,4 @@
+#!/bin/bash
 echo -e "Checking for \"carbonsphere/dock-easy-rsa\" docker image\n"
 
 IMG=`docker images |grep carbonsphere/dock-easy-rsa`
@@ -11,6 +12,16 @@ DCONTAIN=`docker ps -a |grep carbonsphere/dock-easy-rsa`
 if [ "$?" != "1" ]; then
   echo "A copy of dock-easy-rsa is in process. Please terminate it before running EX: docker rm easy-rsa"
   exit
+fi
+
+if ! [ -d "keys" ]; then
+  echo -e "Create keys directory"
+  mkdir keys
+fi
+
+if ! [ -d "openvpn" ]; then
+  echo -e "Create keys directory"
+  mkdir openvpn
 fi
 
 if ! [ -e "vars" ]; then

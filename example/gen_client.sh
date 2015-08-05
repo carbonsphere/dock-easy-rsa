@@ -14,6 +14,16 @@ if [ "$?" != "1" ]; then
   exit
 fi
 
+if ! [ -d "keys" ]; then
+  echo -e "Create keys directory"
+  mkdir keys
+fi
+
+if ! [ -d "openvpn" ]; then
+  echo -e "Create keys directory"
+  mkdir openvpn
+fi
+
 if ! [ -e "vars" ]; then
   echo -e "Error: Please create vars or you can use default vars by \"cp vars.example vars\" then run gen_ca_init.sh"
   echo -e "Edit vars to enter your default certificate generation variable."
