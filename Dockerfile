@@ -9,8 +9,9 @@ MAINTAINER CarbonSphere <CarbonSphere@gmail.com>
 ENV HOME 						/root
 ENV TERM 						xterm
 
-RUN yum -y install epel-release; \
-	yum -y install easy-rsa
+RUN yum -y update; yum -y install epel-release; yum -y clean all
+
+RUN yum -y install easy-rsa; yum -y clean all
 
 RUN ln -s /usr/share/easy-rsa/2.0 /er
 
